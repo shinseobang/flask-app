@@ -27,5 +27,10 @@ def download():
 
     return f"<h1>다운로드 완료!</h1><a href='/'>다시 다운로드</a>"
 
+import os  # 환경 변수를 사용하기 위한 모듈
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Render가 제공하는 포트 번호를 사용
+    port = int(os.environ.get("PORT", 5000))
+    # Flask 앱 실행
+    app.run(host="0.0.0.0", port=port)
