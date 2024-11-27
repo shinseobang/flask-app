@@ -18,9 +18,11 @@ def home():
 def download():
     url = request.form['url']
     ydl_opts = {
-        'outtmpl': '%(title)s.%(ext)s',
-        'format': 'bestvideo+bestaudio/best',
-    }
+    'outtmpl': '%(title)s.%(ext)s',
+    'format': 'bestvideo+bestaudio/best',
+    'cookiefile': 'C:/Users/MyName/Downloads/youtube.com_cookies.txt',  # 쿠키 파일 경로
+}
+
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
